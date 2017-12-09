@@ -28,4 +28,3 @@ print()
 check_dir_exists(args.directory)
 loop_through_dir(args.directory)
 
-

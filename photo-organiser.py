@@ -13,9 +13,10 @@ def check_dir_exists(directory):
         sys.exit(1)
 
 def loop_through_dir(directory):
+    print(" {}".format(directory))
     for file in os.listdir(directory):
         if os.path.isfile(file):
-            print("{}/{}".format(directory, file))
+            print(" └── {}".format(file))
 
 parser = argparse.ArgumentParser()
 parser.add_argument("directory", help="the directory to look for photos in")

@@ -15,7 +15,7 @@ def check_dir_exists(directory):
 def loop_through_dir(directory):
     print(" {}".format(directory))
     for file in os.listdir(directory):
-        if os.path.isfile(file):
+        if os.path.isfile(os.path.join(directory, file)):
             print(" └── {}".format(file))
 
 parser = argparse.ArgumentParser()

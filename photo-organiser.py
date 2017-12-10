@@ -9,7 +9,7 @@ from datetime import datetime
 import exifread
 
 
-def check_arguments():
+def photo_organiser():
     parser = argparse.ArgumentParser()
     parser.add_argument("directory", help="the directory to look for photos in")
     args = parser.parse_args()
@@ -21,14 +21,14 @@ def check_arguments():
         print("The specified directory does not exist: {}".format(args.directory))
         sys.exit(1)
     else:
-        loop_through_dir(args.directory)
+        find_images_in_dir(args.directory)
 
 
 def check_dir_exists(directory):
     return os.path.isdir(directory)
 
 
-def loop_through_dir(directory):
+def find_images_in_dir(directory):
     print(" {}".format(directory))
     for file in os.listdir(directory):
         fullpath = os.path.join(directory, file)
@@ -62,4 +62,4 @@ def determine_image_date(date_tag):
 
 
 if __name__ == '__main__':
-    check_arguments()
+    photo_organiser()

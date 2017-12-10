@@ -38,27 +38,27 @@ def find_images_in_dir(directory):
 
 
 def read_exif_data(image):
-    dto_tag = "EXIF DateTimeOriginal"
+    dt_tag = "EXIF DateTimeOriginal"
 
     with open(image, "rb") as f:
-        tags = exifread.process_file(f, stop_tag=dto_tag)
-    if dto_tag in tags.keys():
-        dto = tags[dto_tag]
-        determine_image_date(dto)
+        tags = exifread.process_file(f, stop_tag=dt_tag)
+    if dt_tag in tags.keys():
+        dt = tags[dt_tag]
+        determine_image_date(dt)
     else:
         print("---- Tag does not exist ----")  # Need to exception handle this
 
 
 def determine_image_date(date_tag):
-    parsed_dto = datetime.strptime(str(date_tag), "%Y:%m:%d %H:%M:%S")
+    parsed_dt = datetime.strptime(str(date_tag), "%Y:%m:%d %H:%M:%S")
 
-    image_year = parsed_dto.year
-    image_month = parsed_dto.month
-    image_day = parsed_dto.day
+    image_year = parsed_dt.year
+    image_month = parsed_dt.month
+    image_day = parsed_dt.day
 
-    print(" |   └── Year:  {:>4}".format(parsed_dto.year))
-    print(" |   └── Month: {:>4}".format(parsed_dto.month))
-    print(" |   └── Day    {:>4}".format(parsed_dto.day))
+    print(" |   └── Year:  {:>4}".format(parsed_dt.year))
+    print(" |   └── Month: {:>4}".format(parsed_dt.month))
+    print(" |   └── Day    {:>4}".format(parsed_dt.day))
 
 
 if __name__ == '__main__':

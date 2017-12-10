@@ -46,7 +46,8 @@ def read_exif_data(image):
         dt = tags[dt_tag]
         determine_image_date(dt)
     else:
-        print("---- Tag does not exist ----")  # Need to exception handle this
+        print("         Tag does not exist")  # Need to exception handle this
+        print("        (Not an image file?)")
 
 
 def determine_image_date(date_tag):

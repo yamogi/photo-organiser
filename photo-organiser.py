@@ -34,8 +34,6 @@ def read_exif_data(image):
     if dto_tag in tags.keys():
         dto = tags[dto_tag]
         parsed_dto = datetime.strptime(str(dto), "%Y:%m:%d %H:%M:%S")
-        date_image_taken = parsed_dto.strftime('%Y-%m-%d')
-        print(" |   └── {}".format(date_image_taken))
         print(" |   └── Year:  {:>4}".format(parsed_dto.year))
         print(" |   └── Month: {:>4}".format(parsed_dto.month))
         print(" |   └── Day    {:>4}".format(parsed_dto.day))

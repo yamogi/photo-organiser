@@ -44,7 +44,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("directory", help="the directory to look for photos in")
 args = parser.parse_args()
 
-print("\033[1;34m Scanning: {}\033[0m".format(args.directory))
+print("Scanning: {}".format(args.directory))
 print()
 
 check_dir_exists(args.directory)

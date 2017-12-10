@@ -26,8 +26,15 @@ def loop_through_dir(directory):
 
 
 def read_exif_data(image):
-    f = open(image, "rb")
-    tags = exifread.process_file(f)
+    dto_tag = "EXIF DateTimeOriginal"
+    with open(image, "rb") as f:
+        tags = exifread.process_file(f, stop_tag=dto_tag)
+    if dto_tag in tags.keys():
+        print("    Tag exists")
+        dto = tags[dto_tag]
+        print("        {}".format(dto))
+    else:
+        print("    Tag does not exist")
 
 
 parser = argparse.ArgumentParser()

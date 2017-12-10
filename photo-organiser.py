@@ -34,8 +34,10 @@ def read_exif_data(image):
     if dto_tag in tags.keys():
         dto = tags[dto_tag]
         parsed_dto = datetime.strptime(str(dto), "%Y:%m:%d %H:%M:%S")
+        date_image_taken = parsed_dto.strftime('%Y-%m-%d')
+        print(" |   └── {}".format(date_image_taken))
     else:
-        print("    Tag does not exist")
+        print("    Tag does not exist")  # Need to exception handle this
 
 
 parser = argparse.ArgumentParser()

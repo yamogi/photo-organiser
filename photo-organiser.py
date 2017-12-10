@@ -4,6 +4,8 @@ import argparse
 import os
 import sys
 
+from datetime import datetime
+
 import exifread
 
 
@@ -30,9 +32,8 @@ def read_exif_data(image):
     with open(image, "rb") as f:
         tags = exifread.process_file(f, stop_tag=dto_tag)
     if dto_tag in tags.keys():
-        print("    Tag exists")
         dto = tags[dto_tag]
-        print("        {}".format(dto))
+        parsed_dto = datetime.strptime(str(dto), "%Y:%m:%d %H:%M:%S")
     else:
         print("    Tag does not exist")
 

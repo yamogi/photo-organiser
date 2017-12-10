@@ -8,6 +8,20 @@ from datetime import datetime
 
 import exifread
 
+def check_arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("directory", help="the directory to look for photos in")
+    args = parser.parse_args()
+
+    print("Scanning: {}".format(args.directory))
+    print()
+
+    if not check_dir_exists(args.directory):
+        print("The specified directory does not exist: {}".format(args.directory))
+        sys.exit(1)
+    else:
+        loop_through_dir(args.directory)
+
 
 def check_dir_exists(directory):
     return os.path.isdir(directory)
@@ -46,15 +60,5 @@ def determine_image_date(date_tag):
     print(" |   └── Day    {:>4}".format(parsed_dto.day))
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument("directory", help="the directory to look for photos in")
-args = parser.parse_args()
-
-print("Scanning: {}".format(args.directory))
-print()
-
-if not check_dir_exists(args.directory):
-    print("The specified directory does not exist: {}".format(args.directory))
-    sys.exit(1)
-
-loop_through_dir(args.directory)
+if __name__ == '__main__':
+    check_arguments()

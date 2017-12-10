@@ -4,6 +4,8 @@ import argparse
 import os
 import sys
 
+import exifread
+
 
 def check_dir_exists(directory):
     try:
@@ -17,8 +19,15 @@ def check_dir_exists(directory):
 def loop_through_dir(directory):
     print(" {}".format(directory))
     for file in os.listdir(directory):
-        if os.path.isfile(os.path.join(directory, file)):
+        fullpath = os.path.join(directory,file)
+        if os.path.isfile(fullpath):
             print(" └── {}".format(file))
+            read_exif_data(fullpath)
+
+
+def read_exif_data(image):
+    f = open(image, "rb")
+    tags = exifread.process_file(f)
 
 
 parser = argparse.ArgumentParser()

@@ -10,12 +10,7 @@ import exifread
 
 
 def check_dir_exists(directory):
-    try:
-        if not os.path.isdir(directory):
-            raise OSError
-    except OSError:
-        print("The specified directory does not exist: {}".format(directory))
-        sys.exit(1)
+    return os.path.isdir(directory)
 
 
 def loop_through_dir(directory):
@@ -58,5 +53,8 @@ args = parser.parse_args()
 print("Scanning: {}".format(args.directory))
 print()
 
-check_dir_exists(args.directory)
+if not check_dir_exists(args.directory):
+    print("The specified directory does not exist: {}".format(args.directory))
+    sys.exit(1)
+
 loop_through_dir(args.directory)

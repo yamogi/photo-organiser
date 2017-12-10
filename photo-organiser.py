@@ -36,6 +36,9 @@ def read_exif_data(image):
         parsed_dto = datetime.strptime(str(dto), "%Y:%m:%d %H:%M:%S")
         date_image_taken = parsed_dto.strftime('%Y-%m-%d')
         print(" |   └── {}".format(date_image_taken))
+        print(" |   └── Year:  {:>4}".format(parsed_dto.year))
+        print(" |   └── Month: {:>4}".format(parsed_dto.month))
+        print(" |   └── Day    {:>4}".format(parsed_dto.day))
     else:
         print("    Tag does not exist")  # Need to exception handle this
 

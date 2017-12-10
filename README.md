@@ -24,17 +24,17 @@ Scanning: /home/user/Pictures
 
  /home/user/Pictures
  └── DSC_0144.JPG
- |   └── Year:  2017
- |   └── Month:   11
- |   └── Day      11
+ │   └── Year:  2017
+ │   └── Month:   11
+ │   └── Day      11
  └── DSC_0128.JPG
- |   └── Year:  2017
- |   └── Month:   11
- |   └── Day      11
+ │   └── Year:  2017
+ │   └── Month:   11
+ │   └── Day      11
  └── DSC_0272.JPG
- |   └── Year:  2017
- |   └── Month:   12
- |   └── Day       7
+ │   └── Year:  2017
+ │   └── Month:   12
+ │   └── Day       7
 
 [...]
 ```

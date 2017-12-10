@@ -33,12 +33,22 @@ def read_exif_data(image):
         tags = exifread.process_file(f, stop_tag=dto_tag)
     if dto_tag in tags.keys():
         dto = tags[dto_tag]
-        parsed_dto = datetime.strptime(str(dto), "%Y:%m:%d %H:%M:%S")
-        print(" |   └── Year:  {:>4}".format(parsed_dto.year))
-        print(" |   └── Month: {:>4}".format(parsed_dto.month))
-        print(" |   └── Day    {:>4}".format(parsed_dto.day))
+        determine_image_date(dto)
     else:
         print("    Tag does not exist")  # Need to exception handle this
+
+
+def determine_image_date(date_tag):
+    parsed_dto = datetime.strptime(str(date_tag), "%Y:%m:%d %H:%M:%S")
+
+    image_year  = parsed_dto.year
+    image_month = parsed_dto.month
+    image_day   = parsed_dto.day
+
+    print(" |   └── Year:  {:>4}".format(parsed_dto.year))
+    print(" |   └── Month: {:>4}".format(parsed_dto.month))
+    print(" |   └── Day    {:>4}".format(parsed_dto.day))
+
 
 
 parser = argparse.ArgumentParser()

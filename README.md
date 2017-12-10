@@ -9,3 +9,9 @@ This is a small python project to assist my learning of the language, which will
   * Option 2: `YYYY/MM/DD/`
 * (Undecided) allow an option that converts between one directory structure and another? In case the user changes their mind
 
+## Example
+
+```
+Test
+Test
+```

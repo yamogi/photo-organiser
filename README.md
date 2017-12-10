@@ -12,6 +12,23 @@ This is a small python project to assist my learning of the language, which will
 ## Example
 
 ```
-Test
-Test
+user@host ~ $ python photo-organiser.py ~/Pictures
+
+Scanning: /home/user/Pictures
+
+ /home/user/Pictures
+ └── DSC_0144.JPG
+ |   └── Year:  2017
+ |   └── Month:   11
+ |   └── Day      11
+ └── DSC_0128.JPG
+ |   └── Year:  2017
+ |   └── Month:   11
+ |   └── Day      11
+ └── DSC_0272.JPG
+ |   └── Year:  2017
+ |   └── Month:   12
+ |   └── Day       7
+
+[...]
 ```

@@ -57,9 +57,9 @@ def determine_image_date(date_tag):
     image_month = parsed_dt.month
     image_day = parsed_dt.day
 
-    print(" │   └── Year:  {:>4}".format(parsed_dt.year))
-    print(" │   └── Month: {:>4}".format(parsed_dt.month))
-    print(" │   └── Day    {:>4}".format(parsed_dt.day))
+    print(" │   └── Year:  {:>4}".format(image_year))
+    print(" │   └── Month: {:>4}".format(image_month))
+    print(" │   └── Day    {:>4}".format(image_day))
 
 
 if __name__ == '__main__':

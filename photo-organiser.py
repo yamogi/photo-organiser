@@ -8,6 +8,7 @@ from datetime import datetime
 
 import exifread
 
+
 def check_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument("directory", help="the directory to look for photos in")

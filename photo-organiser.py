@@ -21,7 +21,7 @@ def check_dir_exists(directory):
 def loop_through_dir(directory):
     print(" {}".format(directory))
     for file in os.listdir(directory):
-        fullpath = os.path.join(directory,file)
+        fullpath = os.path.join(directory, file)
         if os.path.isfile(fullpath):
             print(" └── {}".format(file))
             read_exif_data(fullpath)
@@ -29,6 +29,7 @@ def loop_through_dir(directory):
 
 def read_exif_data(image):
     dto_tag = "EXIF DateTimeOriginal"
+
     with open(image, "rb") as f:
         tags = exifread.process_file(f, stop_tag=dto_tag)
     if dto_tag in tags.keys():
@@ -41,14 +42,13 @@ def read_exif_data(image):
 def determine_image_date(date_tag):
     parsed_dto = datetime.strptime(str(date_tag), "%Y:%m:%d %H:%M:%S")
 
-    image_year  = parsed_dto.year
+    image_year = parsed_dto.year
     image_month = parsed_dto.month
-    image_day   = parsed_dto.day
+    image_day = parsed_dto.day
 
     print(" |   └── Year:  {:>4}".format(parsed_dto.year))
     print(" |   └── Month: {:>4}".format(parsed_dto.month))
     print(" |   └── Day    {:>4}".format(parsed_dto.day))
-
 
 
 parser = argparse.ArgumentParser()
